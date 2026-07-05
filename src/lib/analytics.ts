@@ -17,9 +17,11 @@ export function initGA() {
   gaLoaded = true;
 
   window.dataLayer = window.dataLayer || [];
+
   function gtag(...args: unknown[]) {
     window.dataLayer.push(args);
   }
+
   window.gtag = gtag;
 
   const script = document.createElement("script");
