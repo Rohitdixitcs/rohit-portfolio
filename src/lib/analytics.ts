@@ -12,23 +12,30 @@ let gaLoaded = false;
 /** Injects the GA4 gtag.js script and initializes it. No-op if VITE_GA_MEASUREMENT_ID is unset or in dev. */
 export function initGA() {
   if (gaLoaded || !isGaConfigured() || typeof window === "undefined") return;
-  if (!import.meta.env.PROD) return; // only track real production traffic
+  if (!import.meta.env.PROD) return;
+
   gaLoaded = true;
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(...args: unknown[]) {
+    window.dataLayer.push(args);
+  }
+  window.gtag = gtag;
 
   const script = document.createElement("script");
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${ENV.GA_MEASUREMENT_ID}`;
-  document.head.appendChild(script);
 
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag(...args: unknown[]) {
-    window.dataLayer.push(args);
+  script.onload = () => {
+    gtag("js", new Date());
+
+    gtag("config", ENV.GA_MEASUREMENT_ID!, {
+      send_page_view: true,
+      debug_mode: true,
+    });
   };
-  window.gtag("js", new Date());
-  window.gtag("config", ENV.GA_MEASUREMENT_ID, {
-  send_page_view: true,
-  debug_mode: true,
-});
+
+  document.head.appendChild(script);
 }
 
 /** Sends a GA4 event. No-op if GA isn't configured, so calls are always safe to fire. */
