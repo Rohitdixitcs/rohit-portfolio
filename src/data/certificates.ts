@@ -1,0 +1,58 @@
+import type { Certificate } from "@/types";
+
+export const CERTIFICATES: Certificate[] = [
+  {
+    id: "meta-frontend",
+    title: "Meta Front-End Developer",
+    issuer: "Meta (Coursera)",
+    issuedAt: "2025",
+    credentialUrl: "#",
+    skills: ["React", "JavaScript", "HTML/CSS", "Version Control", "UX Design"],
+    imageUrl: "",
+  },
+  {
+    id: "google-ux",
+    title: "Google UX Design",
+    issuer: "Google (Coursera)",
+    issuedAt: "2025",
+    credentialUrl: "#",
+    skills: ["UX Research", "Wireframing", "Prototyping", "Figma", "Usability Testing"],
+    imageUrl: "",
+  },
+  {
+    id: "freecodecamp-js",
+    title: "JavaScript Algorithms & Data Structures",
+    issuer: "freeCodeCamp",
+    issuedAt: "2024",
+    credentialUrl: "#",
+    skills: ["JavaScript", "Algorithms", "Data Structures", "ES6+"],
+    imageUrl: "",
+  },
+  {
+    id: "freecodecamp-responsive",
+    title: "Responsive Web Design",
+    issuer: "freeCodeCamp",
+    issuedAt: "2024",
+    credentialUrl: "#",
+    skills: ["HTML5", "CSS3", "Flexbox", "CSS Grid", "Accessibility"],
+    imageUrl: "",
+  },
+  {
+    id: "openai-fundamentals",
+    title: "AI For Everyone",
+    issuer: "DeepLearning.AI (Coursera)",
+    issuedAt: "2025",
+    credentialUrl: "#",
+    skills: ["AI Concepts", "Machine Learning", "Neural Networks", "AI Strategy"],
+    imageUrl: "",
+  },
+  {
+    id: "mongodb-basics",
+    title: "MongoDB Basics",
+    issuer: "MongoDB University",
+    issuedAt: "2025",
+    credentialUrl: "#",
+    skills: ["MongoDB", "CRUD Operations", "Aggregation", "Indexing"],
+    imageUrl: "",
+  },
+];

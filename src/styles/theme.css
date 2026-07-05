@@ -1,0 +1,214 @@
+:root {
+  --font-size: 16px;
+
+  /* ─── Fluid typography scale — modular, tuned to hit explicit px targets
+     at mobile(375)/tablet(768)/desktop(1440)/large-desktop(1920) ─── */
+  --fs-hero: clamp(3.5rem, 2.92rem + 4.34vw, 8.125rem);          /* 56 mobile / 80 tablet / 110 desktop / 130px @1920 */
+  --fs-hero-subtitle: clamp(1.5rem, 1.375rem + 1.04vw, 2.625rem); /* 24 mobile / 30 tablet / 42px desktop */
+  --fs-hero-desc: clamp(1.25rem, 1.2rem + 0.35vw, 1.625rem);     /* 20 mobile / 22 tablet / 26px desktop */
+  --fs-section-title: clamp(2.625rem, 2.71rem + 1.91vw, 5rem);   /* ~50 mobile / 58 tablet / 71 desktop / 80px @1920 */
+  --fs-body-lg: clamp(1.125rem, 1.15rem + 0.18vw, 1.375rem);     /* 18-20 mobile-tablet / 20-22px desktop — section descriptions */
+  --fs-nav: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);                /* 16-20px */
+  --fs-logo: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem);
+  --fs-button: clamp(1rem, 0.92rem + 0.35vw, 1.25rem);           /* 18-20px */
+  --fs-badge: clamp(0.8rem, 0.75rem + 0.3vw, 1.125rem);
+  --fs-section-label: clamp(0.75rem, 0.7rem + 0.3vw, 1.125rem);
+  --fs-project-title: clamp(1.75rem, 1.4rem + 2vw, 3.5rem);
+  --fs-card-title: clamp(1.15rem, 1.05rem + 0.65vw, 1.625rem);
+  --fs-body: clamp(1rem, 0.9rem + 0.4vw, 1.5rem);
+  --fs-eyebrow: clamp(0.75rem, 0.7rem + 0.3vw, 1.125rem);
+  --fs-skill-card: clamp(1.1rem, 1rem + 0.55vw, 1.5rem);
+  --fs-timeline: clamp(1.05rem, 0.95rem + 0.5vw, 1.375rem);
+  --fs-footer: clamp(1rem, 0.92rem + 0.35vw, 1.25rem);
+  --fs-stat-number: clamp(2.5rem, 2.5rem + 1.56vw, 4.5rem);      /* ~40 mobile / 52 tablet / 62-70px desktop */
+  --fs-stat-label: clamp(1rem, 0.95rem + 0.2vw, 1.25rem);
+
+  /* Fluid section spacing — large editorial rhythm on big screens */
+  --space-section-y: clamp(4rem, 2rem + 10vw, 13.75rem);   /* up to 220px */
+  --space-section-gap: clamp(2.5rem, 1.8rem + 3.5vw, 5.5rem);
+  --container-max: min(94vw, 1600px);
+  --nav-height: clamp(4rem, 3.5rem + 1.2vw, 5.5rem);
+
+  /* ─── Dark futuristic design language — the only theme ─── */
+  --background: #050816;
+  --foreground: #e2e8f0;
+  --card: #0e1222;
+  --card-foreground: #e2e8f0;
+  --popover: #0d1428;
+  --popover-foreground: #e2e8f0;
+
+  /* Brand */
+  --primary: #818cf8;
+  --primary-foreground: #050816;
+  --secondary: #0f1629;
+  --secondary-foreground: #e2e8f0;
+
+  /* Neutral */
+  --muted: #0f1629;
+  --muted-foreground: #64748b;
+  --accent: #141830;
+  --accent-foreground: #e2e8f0;
+
+  /* Semantic */
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --success: #4ade80;
+  --success-foreground: #050816;
+  --warning: #fbbf24;
+  --warning-foreground: #050816;
+
+  /* Structure */
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.05);
+  --input-background: rgba(255, 255, 255, 0.04);
+  --switch-background: #1e2540;
+  --ring: #818cf8;
+  --radius: 0.75rem;
+
+  /* Aurora + glow palette */
+  --aurora-1: rgba(99, 102, 241, 0.6);
+  --aurora-2: rgba(139, 92, 246, 0.5);
+  --aurora-3: rgba(6, 182, 212, 0.35);
+  --glow-blue: rgba(99, 102, 241, 0.5);
+  --glow-purple: rgba(168, 85, 247, 0.45);
+  --glow-cyan: rgba(34, 211, 238, 0.4);
+
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: #0e1222;
+  --sidebar-foreground: #e2e8f0;
+  --sidebar-primary: #818cf8;
+  --sidebar-primary-foreground: #050816;
+  --sidebar-accent: #141830;
+  --sidebar-accent-foreground: #e2e8f0;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #818cf8;
+}
+
+@theme inline {
+  --font-display: "Outfit", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.3);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.5);
+  }
+
+  ::selection {
+    background: rgba(99, 102, 241, 0.25);
+    color: inherit;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+  }
+
+  p { line-height: 1.7; }
+  code, pre { font-family: var(--font-mono); }
+}
+
+/* Custom cursor: hide the native cursor only once JS confirms a fine pointer
+   and no reduced-motion preference — never on touch devices. */
+html.custom-cursor-active,
+html.custom-cursor-active * {
+  cursor: none !important;
+}
+
+/* Respect prefers-reduced-motion for every CSS-driven animation/transition
+   (Tailwind's animate-ping/animate-pulse/animate-spin utilities, the
+   FloatingParticles keyframe, and anchor/JS-triggered smooth scrolling that
+   defers to this property). Framer Motion animations are handled separately
+   per-component via useReducedMotion(), since they aren't CSS animations and
+   this rule can't reach them. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

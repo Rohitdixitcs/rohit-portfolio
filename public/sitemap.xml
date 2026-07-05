@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  This is a single-page site, so there's only one URL to list.
+  Replace "https://rohitdixit.dev/" below (and in robots.txt, and the
+  canonical tag in index.html) with your real deployed domain once you know it.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://rohitdixit.dev/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
