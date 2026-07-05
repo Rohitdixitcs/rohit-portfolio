@@ -16,28 +16,26 @@ export function initGA() {
 
   gaLoaded = true;
 
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag(...args: unknown[]) {
-    window.dataLayer.push(args);
-  }
-
-  window.gtag = gtag;
-
   const script = document.createElement("script");
   script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${ENV.GA_MEASUREMENT_ID}`;
-
-  script.onload = () => {
-    gtag("js", new Date());
-
-    gtag("config", ENV.GA_MEASUREMENT_ID!, {
-      send_page_view: true,
-      debug_mode: true,
-    });
-  };
-
+  script.src =
+    `https://www.googletagmanager.com/gtag/js?id=${ENV.GA_MEASUREMENT_ID}`;
   document.head.appendChild(script);
+
+  const inline = document.createElement("script");
+
+  inline.innerHTML = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', '${ENV.GA_MEASUREMENT_ID}', {
+      send_page_view: true,
+      debug_mode: true
+    });
+  `;
+
+  document.head.appendChild(inline);
 }
 
 /** Sends a GA4 event. No-op if GA isn't configured, so calls are always safe to fire. */
