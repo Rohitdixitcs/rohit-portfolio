@@ -25,7 +25,10 @@ export function initGA() {
     window.dataLayer.push(args);
   };
   window.gtag("js", new Date());
-  window.gtag("config", ENV.GA_MEASUREMENT_ID, { send_page_view: true });
+  window.gtag("config", ENV.GA_MEASUREMENT_ID, {
+  send_page_view: true,
+  debug_mode: true,
+});
 }
 
 /** Sends a GA4 event. No-op if GA isn't configured, so calls are always safe to fire. */
